@@ -105,11 +105,11 @@ The table MUST contain four columns of type `integer`, named `face`, `zoom_level
 `tile_row`, and one of type `blob`, named `tile_data`.
 A typical `create` statement for the `tiles` table:
 
-    CREATE TABLE tiles (zoom_level integer, tile_column integer, tile_row integer, tile_data blob);
+    CREATE TABLE tiles (face integer, zoom_level integer, tile_column integer, tile_row integer, tile_data blob);
 
 The database MAY contain an index for efficient access to this table:
 
-    CREATE UNIQUE INDEX tile_index on tiles (zoom_level, tile_column, tile_row);
+    CREATE UNIQUE INDEX tile_index on tiles (face, zoom_level, tile_column, tile_row);
 
 #### Content
 
@@ -138,17 +138,17 @@ specification is only concerned with storage._
 
 The database MAY have tables named `grids` and `grid_data`.
 
-The `grids` table MUST contain three columns of type `integer`, named `zoom_level`, `tile_column`,
+The `grids` table MUST contain four columns of type `integer`, named `face`, `zoom_level`, `tile_column`,
 and `tile_row`, and one of type `blob`, named `grid`.
 A typical create statement for the `grids` table:
 
     CREATE TABLE grids (zoom_level integer, tile_column integer, tile_row integer, grid blob);
 
-The `grid_data` table MUST contain three columns of type `integer`, named `zoom_level`, `tile_column`,
+The `grid_data` table MUST contain four columns of type `integer`, named `face`, `zoom_level`, `tile_column`,
 and `tile_row`, and two of type `text`, named `key_name`, and `key_json`.
 A typical create statement for the `grid_data` table:
 
-    CREATE TABLE grid_data (zoom_level integer, tile_column integer, tile_row integer, key_name text, key_json text);
+    CREATE TABLE grid_data (face integer, zoom_level integer, tile_column integer, tile_row integer, key_name text, key_json text);
 
 #### Content
 
