@@ -1,10 +1,11 @@
 {
   "name": "s2tiles-spec",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "specification documents for the S2Tiles tileset format",
-  "main": "./1.0/schema.sql",
+  "main": "./lib/schema.sql",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
