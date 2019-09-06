@@ -5,4 +5,4 @@ let schema = fs.readFileSync('./1.0/schema.sql', 'utf8')
 schema = { schema }
 
 
-fs.writeFileSync('./lib/schema.sql', JSON.stringify(schema))
+fs.writeFileSync('./lib/schema.json', JSON.stringify(schema))
