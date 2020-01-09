@@ -1,6 +1,6 @@
 {
   "name": "s2tiles-spec",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "specification documents for the S2Tiles tileset format",
   "main": "./lib/schema.json",
   "scripts": {
