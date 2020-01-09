@@ -62,12 +62,12 @@ The metadata table is used as a key/value store for settings. It MUST contain th
 * `compression` (string): The type of compression used on the tile data: `none`, `xz`, `gzip`, `7zip`, `bzip2`
 * `faces` (string of comma-separated numbers): The list of faces that the tile data encompases.
   Faces must be defined by the `S2 Projection` spec, with number values between 0 and 5. For example, if Australia was saved at zoom 0, the resultant faces would be `1,3,5`
-* `facesbounds` (string of comma-separated numbers): The maximum extend of the rendered map area for each face.
+* `facebounds` (string of comma-separated numbers): The maximum extend of the rendered map area for each face.
   Bounds must define an area covered by all zoom levels of a defined face. The bounds are represented
-  as a repeating `S2 Projection Plane` with u and v values, in the S2 Bounds format
+  as a repeating `S2 Projection Plane` with s and t values, in the S2 Bounds format
   (left, bottom, right, top). For example, with Australian faces `1,3,5` we would have a total of 3 * 4
   bound arguments: `-0.00692,`
-* `facescenters` (string of comma-separated numbers): The u, v, zoom level for each face in the
+* `facecenters` (string of comma-separated numbers): The s, t, zoom level for each face in the
   order provided by faces of the default view of the map.
   Example following Australia: `-0.00346,0.6889,11,0.10213,-0.321,11,0.9943,0.2145,11`
 * `minzoom` (number): The lowest zoom level for which the tileset provides data
@@ -203,17 +203,17 @@ numeric attributes.
 A vector tileset that contains United States counties and primary roads from [TIGER](https://www.census.gov/geo/maps-data/data/tiger-line.html) might
 have the following metadata table:
 
-* `name`: `TIGER 2016`
+* `name`: `Water`
 * `format`: `pbf`
-* `faces`: `0,3,5`
-* `bounds`: `-179.231086,-14.601813,179.859681,71.441059`
-* `center`: `-84.375000,36.466030,5`
+* `compression`: `gzip`
+* `faces`: `[0, 3, 5]`
+* `facebounds`: `{ "0": [0, 0, 1, 1], "3": [0, 0, 1, 1], "5": [0.3, 0, 1, 0.9] }`
 * `minzoom`: `0`
 * `maxzoom`: `5`
-* `attribution`: `United States Census`
-* `description`: `US Census counties and primary roads`
+* `attribution`: `Open Street Maps & Natural Earth`
+* `description`: `Oceans, Lakes, Rivers, etc.`
 * `type`: `overlay`
-* `version`: `2`
+* `version`: `1`
 * `json`:
 ```
     {
